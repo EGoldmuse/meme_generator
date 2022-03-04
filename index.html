@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div id="data-container">
+        <img id="img-selector"/>
+    </div>
+    <script>
+        $(function(){
+            $.getJSON("https://api.imgflip.com/get_memes", function(res) {
+                var i = Math.floor((Math.random() * res.data.memes.length) + 1)
+                $("#img-selector").attr('src', res.data.memes[i].url)
+            }) 
+        })
+    </script>
+</body>
+</html>
